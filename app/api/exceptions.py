@@ -1,7 +1,7 @@
 from fastapi import HTTPException
 from starlette.status import HTTP_404_NOT_FOUND, HTTP_400_BAD_REQUEST, HTTP_500_INTERNAL_SERVER_ERROR
 
-from .schemеs import ListingCreate
+from .schemas import ListingCreate
 
 """Исключения для HTTP-ответов"""
 

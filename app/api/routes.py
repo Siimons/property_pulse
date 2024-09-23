@@ -7,7 +7,7 @@ from .exceptions import (
     is_valid_listing
 )
 
-from .schemes import (
+from .schemas import (
     ListingCreate,
     ListingUpdate
 )
