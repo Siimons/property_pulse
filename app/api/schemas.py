@@ -21,8 +21,5 @@ class ListingUpdate(BaseModel):
 class Listing(ListingBase):
     id: int = Field(..., description="Идентификатор объявления")
 
-    class Config:
-        orm_mode = True
-
 class ListingsResponse(BaseModel):
     listings: List[Listing] = Field(..., description="Список объявлений")

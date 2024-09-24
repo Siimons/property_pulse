@@ -32,6 +32,7 @@ property_pulse/
 │   │   ├── __init__.py
 │   │   ├── database.py          # Работа с базой данных (PostgreSQL/MongoDB)
 │   │   ├── models.py            # Описание моделей данных (таблицы базы данных)
+│   │   ├── queries.py           # SQL-запросы и функции для взаимодействия с базой (CRUD-операции)
 │   │   ├── cache.py             # Кэширование данных с помощью Redis или Memcached
 │   │   └── migrations.py        # Миграции базы данных (если используется SQL)
 │   ├── analysis/                # Модуль анализа данных
