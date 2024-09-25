@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: property_pulse_app
+    env_file:
+      - .env
+    depends_on:
+      - mysql
+    ports:
+      - "8000:8000"  # Порт для веб-приложения
+    volumes:
+      - .:/app  # Монтируем основной проект
+
+  mysql:
+    image: mysql:8.0
+    container_name: property_pulse_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"  # Порт для MySQL
+    volumes:
+      - mysql-data:/var/lib/mysql  # Том для данных MySQL
+      - ./app/storage/models.sql:/docker-entrypoint-initdb.d/models.sql
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+
+volumes:
+  mysql-data:

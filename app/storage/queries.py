@@ -1,4 +1,5 @@
 from typing import Dict, Any
+from loguru import logger
 
 from .database import execute_query
 
