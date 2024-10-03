@@ -7,6 +7,7 @@ import aiohttp
 
 from loguru import logger
 from random import randint
+from .user_agent import random
 
 class Controller:
     def __init__(self, script_name: str, user_agent: str, base_url: str):
@@ -18,7 +19,7 @@ class Controller:
         :param base_url: Базовый URL для взаимодействия с сервером (API).
         """
         self.script_name = script_name  # Название скрипта, который будет загружаться
-        self.user_agent = user_agent  # Пользовательский агент для запросов
+        self.user_agent = random  # Пользовательский агент для запросов
         self.base_url = base_url  # Базовый URL для API
         logger.info(f"Controller initialized with script: {self.script_name}, base_url: {self.base_url}")
 
